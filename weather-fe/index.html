@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <h1>Current Weather</h1>
+</head>
+
+<body>
+    <div id="app">
+    <label for="city">City:</label><br>
+    <input type="text" id="city" name="city"><br>
+    <!--call functions getWeather and fetchCities in js file-->
+    <button onclick="getWeather()">Get weather</button><br>
+    <label for="cities">Cities:</label><br>
+    <button onclick="fetchCities()">Get favorite cities</button><br>
+    <ul id="cities">
+    </ul>
+    <input type="text" id="addcity" name="addcity"><br>
+    <button onclick="addCity()">Add city</button>
+    <p id="result"></p>
+    <p>Temperature: Celsius</p> <p id="temperature"></p>
+    <p>Description:</p><p id="weather"></p>
+    <p>Windspeed: km/h</p> <p id="windspeed"></p>
+    <p>Humidity: %</p> <p id="humidity"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+<style>
+/* use media queries to have a responsive view*/
+  /*  @media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}*/
+
+@media only screen and (min-width: 600px) {
+    body{
+        background-color: darkcyan;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+      button {
+        width: 100px; 
+        height: 40px; 
+        font-size: 14px;
+        margin: 15px;
+      }
+      body {
+    background-color: lightblue;
+     }
+     li {
+        margin: 15px;
+      }
+    }
+
+/*@media screen and (max-width: 600px) {
+      li {
+        margin: 15px;
+      }
+    }*/
+
+    h1{
+        text-align: center;
+        color: coral;
+    }
+    #app{
+        background-color: beige;
+        text-align: center;
+    }
+    ul{
+        list-style-position: inside;
+        text-align: center;
+    }
+</style>
+</html>
