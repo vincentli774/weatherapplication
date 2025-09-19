@@ -24,8 +24,9 @@ document.getElementById("humidity").innerHTML = JSON.stringify(data.main.humidit
   }
 }
 
+//this function is similar to getWeather() except that it is applied to a city from 
+// the list of favorite cities fetched by the function fetchCities()
 async function fetchWeather(city){
-  //const city = document.getElementById(id).value;
   const apiKey = '07db5ee3e129a96e70de045f61343790';
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   const res = await fetch(url);
@@ -50,25 +51,23 @@ async function fetchCities(){
   const response = await fetch(URL);
   //converting data into json
   const cities = await response.json();
-  //returning the cities list in string format in the html document
-  //const citiesData = JSON.stringify(cities);
-  //document.getElementById("cities").innerHTML = citiesData;
+  //defining a list with the favorite cities to which
+  //every city from the cities response will be added via for loop 
   list = document.getElementById("cities");
   for (i = 0; i < cities.length; ++i){
     const city = cities[i];
+    //creating list item inside unordered list
     let li = document.createElement('li');
-    //li.id = i;
+    //giving list item the city value
     li.textContent = city;
-    //let link = document.createElement('a');
-    //link.href = fetchWeather(city);
-    //link.textContent = city;
-    //link.id = i;
-    //li.appendChild(link);
+    //creating button to retrieve weather
     let btn = document.createElement('button');
     let btn_name = document.createTextNode('Get weather');
+    //calling function fetchWeather() if button is clicked for concerned city
     btn.onclick = () => {
       fetchWeather(city);
     }
+    //appending list item and button to list
     btn.appendChild(btn_name);
     list.appendChild(li);
     list.appendChild(btn);
@@ -76,9 +75,12 @@ async function fetchCities(){
 }
 
 async function addCity(){
+  //getting city value from input field
   city = document.getElementById("addcity").value;
+  //creating headers for post request
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
+  //making post request to backend
   const response = await fetch("http://localhost:3000/addCities",{
   method: "POST",
   body: JSON.stringify({city}),

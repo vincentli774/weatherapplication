@@ -15,11 +15,14 @@
     <button onclick="getWeather()">Get weather</button><br>
     <label for="cities">Cities:</label><br>
     <button onclick="fetchCities()">Get favorite cities</button><br>
+    <!--The list of favorite cities will be shown here-->
     <ul id="cities">
     </ul>
+    <!--This input field and button send the city name to the backend-->
     <input type="text" id="addcity" name="addcity"><br>
     <button onclick="addCity()">Add city</button>
     <p id="result"></p>
+    <!--weather data is displayed here-->
     <p>Temperature: Celsius</p> <p id="temperature"></p>
     <p>Description:</p><p id="weather"></p>
     <p>Windspeed: km/h</p> <p id="windspeed"></p>
@@ -29,11 +32,6 @@
 </body>
 <style>
 /* use media queries to have a responsive view*/
-  /*  @media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
-  }
-}*/
 
 @media only screen and (min-width: 600px) {
     body{
@@ -43,7 +41,8 @@
 }
 
 @media screen and (max-width: 600px) {
-      button {
+  /*make buttons larger for smaller viewport to facilitate usage*/    
+  button {
         width: 100px; 
         height: 40px; 
         font-size: 14px;
@@ -52,16 +51,11 @@
       body {
     background-color: lightblue;
      }
+     /*make list items margin larger for smaller viewport to facilitate view*/
      li {
         margin: 15px;
       }
     }
-
-/*@media screen and (max-width: 600px) {
-      li {
-        margin: 15px;
-      }
-    }*/
 
     h1{
         text-align: center;

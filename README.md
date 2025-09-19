@@ -1,8 +1,11 @@
 Quick start guide in terminal:
+Install node
+Install npm
 npm init -y
 npm install express
 npm install cors
 npm install body-parser
+In package.json change main: index.js to main: app.js
 
 For front-end: Open index.html with live server
 For back-end: Run node app.js in terminal
